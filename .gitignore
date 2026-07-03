@@ -5,3 +5,4 @@ data/*.json
 node_modules/
 .DS_Store
 release/
+github-actions-source.zip
