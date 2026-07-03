@@ -60,7 +60,7 @@ npm run dist:mac
 release/
 ```
 
-会生成 `.dmg` 和 `.zip`。
+会生成 `.zip`，里面包含 macOS `.app`。
 
 ## 源码运行
 

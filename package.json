@@ -12,7 +12,7 @@
     "check": "node --check src/server.js && node --check electron/main.js",
     "dist": "electron-builder",
     "dist:win": "electron-builder --win portable",
-    "dist:mac": "electron-builder --mac dmg zip"
+    "dist:mac": "electron-builder --mac zip"
   },
   "engines": {
     "node": ">=18"
@@ -40,9 +40,7 @@
       ]
     },
     "mac": {
-      "identity": null,
       "target": [
-        "dmg",
         "zip"
       ],
       "category": "public.app-category.business"

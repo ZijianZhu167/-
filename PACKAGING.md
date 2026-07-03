@@ -3,7 +3,7 @@
 ## 当前已支持
 
 - Windows：Electron portable 单文件 `.exe`
-- macOS：Electron `.dmg` / `.zip`，需要在 macOS 环境构建
+- macOS：Electron `.zip`，需要在 macOS 环境构建
 
 ## Windows 构建
 
@@ -32,7 +32,6 @@ npm run dist:mac
 产物：
 
 ```text
-release/*.dmg
 release/*.zip
 ```
 
@@ -47,7 +46,7 @@ Feishu Group Broadcast Bot 0.1.0.exe
 给 macOS 用户：
 
 ```text
-.dmg
+.zip
 ```
 
 ## 使用者首次打开
