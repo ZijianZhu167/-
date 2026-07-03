@@ -1,0 +1,50 @@
+{
+  "name": "feishu-group-broadcast-bot",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Feishu Group Broadcast Bot",
+  "description": "A local admin console for broadcasting messages to Feishu group chats through an app bot.",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "desktop": "electron .",
+    "check": "node --check src/server.js && node --check electron/main.js",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win portable",
+    "dist:mac": "electron-builder --mac dmg zip"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.feishu.groupbroadcastbot",
+    "productName": "Feishu Group Broadcast Bot",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.business"
+    }
+  }
+}

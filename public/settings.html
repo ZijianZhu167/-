@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>设置 - 飞书群发机器人</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell narrow">
+      <header class="topbar">
+        <div>
+          <h1>设置</h1>
+          <p>配置飞书自建应用凭据和本地服务参数</p>
+        </div>
+        <a class="secondary-link" href="/">返回群发</a>
+      </header>
+
+      <section class="panel settings-panel">
+        <form id="settingsForm" class="settings-form">
+          <label>
+            <span>App ID</span>
+            <input id="appIdInput" name="appId" placeholder="cli_xxxxxxxxxxxxx" autocomplete="off" required />
+          </label>
+
+          <label>
+            <span>App Secret</span>
+            <input id="appSecretInput" name="appSecret" placeholder="输入 app_secret" autocomplete="off" required />
+          </label>
+
+          <label>
+            <span>本地端口</span>
+            <input id="portInput" name="port" type="number" min="1024" max="65535" step="1" required />
+          </label>
+
+          <label>
+            <span>发送间隔 ms</span>
+            <input id="sendIntervalInput" name="sendIntervalMs" type="number" min="0" step="1" required />
+          </label>
+
+          <div class="actions">
+            <button id="saveButton" type="submit">保存设置</button>
+            <span id="settingsStatus"></span>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="/settings.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>飞书群发机器人</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>飞书群发机器人</h1>
+          <p id="configStatus">正在检查配置</p>
+        </div>
+        <div class="top-actions">
+          <a class="secondary-link" href="/settings.html">设置</a>
+          <button id="syncButton" type="button">同步机器人所在群</button>
+        </div>
+      </header>
+
+      <section class="layout">
+        <aside class="panel group-panel">
+          <div class="panel-header">
+            <h2>目标群</h2>
+            <span id="groupCount">0 个群</span>
+          </div>
+
+          <div class="toolbar">
+            <button id="selectAllButton" type="button">全选</button>
+            <button id="selectNoneButton" type="button">清空</button>
+          </div>
+
+          <div id="chatList" class="chat-list"></div>
+        </aside>
+
+        <section class="panel compose-panel">
+          <div class="panel-header">
+            <h2>消息内容</h2>
+            <span id="selectedCount">未选择群</span>
+          </div>
+
+          <textarea id="messageInput" rows="12" placeholder="输入要发送到群里的文本消息"></textarea>
+
+          <div class="actions">
+            <button id="sendButton" type="button">发送</button>
+            <span id="sendStatus"></span>
+          </div>
+
+          <div class="log-section">
+            <div class="panel-header">
+              <h2>发送记录</h2>
+              <button id="refreshLogsButton" type="button">刷新</button>
+            </div>
+            <div id="logList" class="log-list"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
