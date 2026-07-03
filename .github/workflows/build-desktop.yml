@@ -34,12 +34,26 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run dist:mac
+      - name: Build macOS app
+        id: build-macos
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run dist:mac 2>&1 | tee macos-build.log
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: false
           ELECTRON_MIRROR: https://npmmirror.com/mirrors/electron/
           ELECTRON_BUILDER_BINARIES_MIRROR: https://npmmirror.com/mirrors/electron-builder-binaries/
       - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: macos-build-log
+          path: macos-build.log
+      - uses: actions/upload-artifact@v4
+        if: steps.build-macos.outcome == 'success'
         with:
           name: macos-release
           path: release/*
+      - name: Fail if macOS build failed
+        if: steps.build-macos.outcome != 'success'
+        run: exit 1
