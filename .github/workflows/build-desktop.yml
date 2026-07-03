@@ -49,6 +49,13 @@ jobs:
         with:
           name: macos-build-log
           path: macos-build.log
+      - name: Add macOS build log to summary
+        if: always()
+        run: |
+          echo "## macOS build log" >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          cat macos-build.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: steps.build-macos.outcome == 'success'
         with:
